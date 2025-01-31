@@ -1,0 +1,3 @@
+# Only Install Python And Django
+
+pip install django
