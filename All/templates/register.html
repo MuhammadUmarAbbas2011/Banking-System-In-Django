@@ -6,48 +6,91 @@
     <title>Register</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: white;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
         }
         h2 {
             text-align: center;
+            color: #4A90E2;
+            margin-bottom: 20px;
         }
         label {
             display: block;
             margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
         }
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 15px;
-            border-radius: 5px;
             border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #4A90E2;
+            outline: none;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
+            padding: 14px;
+            background-color: #4A90E2;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             color: white;
             font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ABD;
         }
         .error {
-            color: red;
+            color: #e74c3c;
             font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
         }
         .success {
-            color: green;
+            color: #2ecc71;
             font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        p {
+            text-align: center;
+            font-size: 14px;
+        }
+        a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                width: 90%;
+            }
         }
     </style>
 </head>

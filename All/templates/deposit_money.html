@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Money</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        .container h1 {
+            font-size: 2.5rem;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+        .container p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 15px 0;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-field:focus {
+            border-color: #4A90E2;
+            outline: none;
+        }
+        .btn {
+            background-color: #4A90E2;
+            color: #fff;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #357ABD;
+        }
+        .success-message {
+            color: #4CAF50;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .error-message {
+            color: #F44336;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-size: 1rem;
+            margin: 5px 0;
+            display: block;
+        }
+        .links a:hover {
+            color: #357ABD;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .container h1 {
+                font-size: 2rem;
+            }
+            .container p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deposit Money</h1>
+        {% if success %}
+            <p class="success-message">{{ success }}</p>
+        {% endif %}
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <p>
+            Welcome, {{ user.username }}!
+        </p>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="amount">Deposit Amount:</label>
+            <input class="input-field" type="number" name="amount" id="amount" required min="1" step="0.01">
+            <button class="btn" type="submit">Deposit</button>
+        </form>
+
+        <div class="links">
+            <p><a href="{% url 'check-account-balance' %}">Check Account Balance</a></p>
+            <p><a href="{% url 'withdraw-money' %}">Withdraw Money</a></p>
+            <p><a href="{% url 'home' %}">Home</a></p>
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+        </div>
+    </div>
+</body>
+</html>

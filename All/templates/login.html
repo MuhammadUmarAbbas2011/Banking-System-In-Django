@@ -6,44 +6,88 @@
     <title>Login</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
+            margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
             max-width: 400px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+        h2 {
+            font-size: 1.8rem;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
         label {
-            display: block;
+            font-size: 1rem;
+            color: #333;
             margin-bottom: 8px;
+            text-align: left;
+            display: block;
         }
         input {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
             border: 1px solid #ddd;
+            font-size: 1rem;
+            color: #333;
+        }
+        input:focus {
+            border-color: #4A90E2;
+            outline: none;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
+            padding: 12px;
+            background-color: #4A90E2;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             color: white;
             font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ABD;
         }
         .error {
-            color: red;
+            color: #e74c3c;
             font-size: 14px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+        a {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -53,11 +97,13 @@
     <h2>Login</h2>
 
     {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li class="error">{{ message }}</li>
-            {% endfor %}
-        </ul>
+        <div class="error">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
 
     <form method="POST">
